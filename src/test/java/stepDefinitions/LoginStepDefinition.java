@@ -17,24 +17,18 @@ public class LoginStepDefinition {
     public void kullaniciRxDrugsHubSayfasinaGider() {
         Driver.getDriver().get(ConfigReader.getProperty("URL"));
 
-
-
     }
-
-    @When("Kullanıcı gecerli bir email ve password girer.")
-    public void kullanıcıGecerliBirEmailVePasswordGirer() {
-       loginPage.Login();
-
+    @When("Kullanici gecerli bir email ve password girer.")
+    public void kullaniciGecerliBirEmailVePasswordGirer() {
+        loginPage.Login();
     }
-
-    @And("Kullanıcı sign in butonuna tıklar.")
-    public void kullanıcıSignInButonunaTıklar() {
-
+    @And("Kullanici sign in butonuna tiklar.")
+    public void kullaniciSignInButonunaTiklar() {
         loginPage.signIn.click();
-    }
 
-    @Then("All Products görüntüler.")
-    public void allProductsGörüntüler() {
+    }
+    @Then("All Products goruntuler.")
+    public void allProductsGoruntuler() {
         Assert.assertTrue(loginPage.AllProducts.isDisplayed());
         Driver.closeDriver();
     }
