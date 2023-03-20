@@ -13,8 +13,8 @@ public class US_05_StepDefinitions {
     @Given("Kullanici  sayfaya gider ve login olur")
     public void kullaniciSayfayaGiderVeLoginOlur() {
         LoginPage lp = new LoginPage(Driver.getDriver());
-        lp.Login();
-        lp.signIn.click();
+        lp.collectiveLogin();
+
     }
 
     @When("Kullanici Account Management ve Subscriptions butonuna tiklar")
