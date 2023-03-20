@@ -36,6 +36,6 @@ public class LoginStepDefinition {
     @Then("All Products görüntüler.")
     public void allProductsGörüntüler() {
         Assert.assertTrue(loginPage.AllProducts.isDisplayed());
-        Driver.closeDriver();
+        // Driver.closeDriver();
     }
 }
