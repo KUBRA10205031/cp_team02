@@ -10,6 +10,9 @@ import utilities.Driver;
 public class US_05 {
     private WebDriver driver;
 
+    public US_05() {
+    }
+
     public US_05(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver,this);
@@ -36,9 +39,10 @@ public class US_05 {
     public void clickSub(){
         dropDown.click();
         accountManagement.click();
-        subscriptionsButton.click();
+
     }
     public void displaySubscriptionsList(){
+        subscriptionsButton.click();
         Assert.assertTrue(subscriptionsList.isDisplayed());
 
     }
