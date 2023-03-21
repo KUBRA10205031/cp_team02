@@ -22,14 +22,12 @@ Feature: Company modulunde duzenleme islemleri
     Then Degisiklik kaydedilir
 
   Scenario: Sadece mail girilerek duzenleme
-    And Isim bos birakilir
-      | isim | email             |
-      |      | team2@hotmail.com |
+    And Isim bos " " birakilir mail "team2@hotmail.com" girilir
+
     Then Uyari alinir
 
   Scenario: Sadece isim girerek duzenleme
-    And mail bos biraklilir
-      | isim   | email |
-      | team 2 |       |
+    And isim girilir "team 2" mail bos " " biraklilir
+
     Then Kayit yapilamaz
 

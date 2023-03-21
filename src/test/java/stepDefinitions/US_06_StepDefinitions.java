@@ -41,24 +41,36 @@ public class US_06_StepDefinitions {
 
     @Then("Degisiklik kaydedilir")
     public void degisiklikKaydedilir() {
-        comp.saveValidate();
+
+        //comp.saveValidate();
     }
 
-    @And("Isim bos birakilir")
-    public void isimBosBirakilir(String name, String email) {
+    @And("Isim bos {string} birakilir mail {string} girilir")
+    public void isimBosBirakilirMailGirilir(String arg0, String arg1) {
+        comp.emailWithoutName(arg0,arg1);
+
     }
 
     @Then("Uyari alinir")
     public void uyariAlinir() {
+        comp.uyariGoruntuleme();
+
     }
 
-    @And("mail bos biraklilir")
-    public void mailBosBiraklilir(String name, String email) {
+    @And("isim girilir {string} mail bos {string} biraklilir")
+    public void isimGirilirMailBosBiraklilir(String arg0, String arg1) {
+        comp.nameWithoutEmail(arg0,arg1);
+
     }
 
     @Then("Kayit yapilamaz")
     public void kayitYapilamaz() {
+        comp.saveValidate();
+
     }
+
+
+
 
 
 }

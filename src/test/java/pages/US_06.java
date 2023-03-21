@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.ReusableMethods;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class US_06 {
@@ -34,6 +35,20 @@ public class US_06 {
     @FindBy(xpath = "//button[text()='Save']")
     private WebElement save;
 
+    @FindBy(className = "text-danger")
+    private WebElement uyari;
+    ////div[@class='col-3']
+
+    @FindBy(xpath = "test-output")
+    private List <WebElement> depList;
+    public void deneme(){
+        for (WebElement e:depList
+             ) {
+            Assert.assertTrue(e.isDisplayed());
+
+        }
+    }
+
 
     public void clickCompanyAndEdit(){
         ReusableMethods.waitUntilElementVisible(company);
@@ -43,24 +58,45 @@ public class US_06 {
     }
     public void enterNameAndMail(String isim,String mail) throws InterruptedException {
         String nameBeforeSendKeys=name.getAttribute("value");
-        String mailBeforeSendKeys=email.getText();
+        String mailBeforeSendKeys=email.getAttribute("value");
         name.clear();
         name.sendKeys(isim);
         email.clear();
         email.sendKeys(mail);
-        Assert.assertFalse(nameBeforeSendKeys.equals(name.getText()));
-        Assert.assertFalse(mailBeforeSendKeys.equals(email.getText()));
+        ReusableMethods.waitUntilClickableAndClick(save);
+        Assert.assertFalse(nameBeforeSendKeys.equals(name.getAttribute("value")));
+        Assert.assertFalse(mailBeforeSendKeys.equals(email.getAttribute("value")));
 
         //Thread.sleep(5000);
 
-        ReusableMethods.waitUntilClickableAndClick(save);
+
         //save.click();
 
     }
-    public void saveValidate(){
-        ReusableMethods.waitUntilElementVisible(edit);
 
-        Assert.assertTrue(edit.isDisplayed());
+    public void emailWithoutName(String isim,String mail){
+        name.clear();
+        name.sendKeys(isim);
+        email.clear();
+        email.sendKeys(mail);
+        ReusableMethods.waitUntilClickableAndClick(save);
+
+
     }
+    public void uyariGoruntuleme(){
+        Assert.assertTrue(uyari.isDisplayed());
+    }
+    public void nameWithoutEmail(String isim,String mail){
+        name.clear();
+        name.sendKeys(isim);
+        email.clear();
+        email.sendKeys(mail);
+
+    }
+    public void saveValidate(){
+        Assert.assertFalse(edit.isDisplayed());
+
+    }
+
 
 }
