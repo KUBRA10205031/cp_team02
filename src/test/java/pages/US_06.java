@@ -39,15 +39,7 @@ public class US_06 {
     private WebElement uyari;
     ////div[@class='col-3']
 
-    @FindBy(xpath = "test-output")
-    private List <WebElement> depList;
-    public void deneme(){
-        for (WebElement e:depList
-             ) {
-            Assert.assertTrue(e.isDisplayed());
 
-        }
-    }
 
 
     public void clickCompanyAndEdit(){
