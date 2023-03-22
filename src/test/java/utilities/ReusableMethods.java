@@ -1,10 +1,7 @@
 package utilities;
-
+//import com.github.javafaker.File;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -16,6 +13,8 @@ import java.util.Date;
 
 public class ReusableMethods {
 
+    private static int timeout = 5;
+
     public static String getScreenshot(WebDriver driver, String name) throws IOException {
 
 
@@ -26,7 +25,7 @@ public class ReusableMethods {
 
         // Screenshot alip file objesine atiyoruz
 
-        File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        java.io.File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
 
         // Kaydedilecek dosyanin yolunu belirliyoruz
@@ -62,5 +61,25 @@ public class ReusableMethods {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(15));
         wait.until(ExpectedConditions.elementToBeClickable(webElement)).click();
 
+    }
+
+    public static void waitFor(int sec) {
+        try {
+            Thread.sleep(sec * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void waitAndClick(WebElement element) throws InterruptedException {
+        for (int i = 0; i < timeout; i++) {
+            try {
+                element.click();
+                return;
+            } catch (WebDriverException e) {
+                wait(1);
+            }
+        }
     }
 }
