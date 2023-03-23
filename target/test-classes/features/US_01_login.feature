@@ -1,10 +1,10 @@
 Feature:User Login RxDrugsHub
 
 
-  Scenario: Kullanıcı sayfaya login olur
+  Scenario: Kullanici sayfaya login olur
     Given Kullanici RxDrugsHub sayfasina gider
-    When  Kullanıcı gecerli bir email ve password girer.
-    And   Kullanıcı sign in butonuna tıklar.
-    Then  All Products görüntüler.
+    When  Kullanici gecerli bir email ve password girer.
+    And   Kullanici sign in butonuna tiklar.
+    Then  All Products goruntuler.
 
 
