@@ -10,6 +10,8 @@ import pages.US_06;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import java.io.IOException;
+
 public class US_06_StepDefinitions {
     US_06 comp = new US_06(Driver.getDriver());
     @Given("Kullanici web sitesine gider ve login olur")
@@ -42,23 +44,24 @@ public class US_06_StepDefinitions {
     @Then("Degisiklik kaydedilir")
     public void degisiklikKaydedilir() {
 
-        //comp.saveValidate();
+        comp.saveValidate1();
     }
 
     @And("Isim bos {string} birakilir mail {string} girilir")
-    public void isimBosBirakilirMailGirilir(String arg0, String arg1) {
+    public void isimBosBirakilirMailGirilir(String arg0, String arg1) throws InterruptedException {
         comp.emailWithoutName(arg0,arg1);
 
     }
 
     @Then("Uyari alinir")
-    public void uyariAlinir() {
+    public void uyariAlinir() throws IOException {
         comp.uyariGoruntuleme();
+        //ReusableMethods.getScreenshot(Driver.getDriver(), "s");
 
     }
 
     @And("isim girilir {string} mail bos {string} biraklilir")
-    public void isimGirilirMailBosBiraklilir(String arg0, String arg1) {
+    public void isimGirilirMailBosBiraklilir(String arg0, String arg1) throws InterruptedException {
         comp.nameWithoutEmail(arg0,arg1);
 
     }

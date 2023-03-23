@@ -7,6 +7,7 @@ import pages.LoginPage;
 import pages.US_05;
 import pages.US_07;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class US_07_StepDefinition {
     US_07 us7 = new US_07(Driver.getDriver());
@@ -26,6 +27,7 @@ public class US_07_StepDefinition {
     @Then("Departments listesini görüntüler")
     public void departmentsListesiniGörüntüler() {
         us7.departmentsDisplay();
+
 
     }
 }

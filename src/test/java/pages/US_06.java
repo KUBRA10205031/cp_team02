@@ -32,12 +32,16 @@ public class US_06 {
     @FindBy(name = "email")
     private WebElement email;
 
-    @FindBy(xpath = "//button[text()='Save']")
+    //@FindBy(xpath = "//button[text()='Save']")
+    //@FindBy(linkText = "Save")
+    @FindBy(xpath = "//button[contains(@class,'px-3')]")
     private WebElement save;
+
 
     @FindBy(className = "text-danger")
     private WebElement uyari;
     ////div[@class='col-3']
+
 
 
 
@@ -51,26 +55,33 @@ public class US_06 {
     public void enterNameAndMail(String isim,String mail) throws InterruptedException {
         String nameBeforeSendKeys=name.getAttribute("value");
         String mailBeforeSendKeys=email.getAttribute("value");
+
         name.clear();
         name.sendKeys(isim);
         email.clear();
         email.sendKeys(mail);
-        ReusableMethods.waitUntilClickableAndClick(save);
-        Assert.assertFalse(nameBeforeSendKeys.equals(name.getAttribute("value")));
-        Assert.assertFalse(mailBeforeSendKeys.equals(email.getAttribute("value")));
-
+        Boolean firstCondition=!nameBeforeSendKeys.equals(name.getAttribute("value"));
+        Boolean secondCondition=!mailBeforeSendKeys.equals(email.getAttribute("value"));
         //Thread.sleep(5000);
+        if (firstCondition&&secondCondition)
+        ReusableMethods.waitUntilClickableAndClick(save);
 
 
-        //save.click();
+    }
+    public void saveValidate1(){
+        save.click();
+        ReusableMethods.waitUntilElementVisible(edit);
+        Assert.assertTrue(edit.isDisplayed());
+
 
     }
 
-    public void emailWithoutName(String isim,String mail){
+    public void emailWithoutName(String isim,String mail) throws InterruptedException {
         name.clear();
         name.sendKeys(isim);
         email.clear();
         email.sendKeys(mail);
+        Thread.sleep(5000);
         ReusableMethods.waitUntilClickableAndClick(save);
 
 
@@ -78,11 +89,13 @@ public class US_06 {
     public void uyariGoruntuleme(){
         Assert.assertTrue(uyari.isDisplayed());
     }
-    public void nameWithoutEmail(String isim,String mail){
+    public void nameWithoutEmail(String isim,String mail) throws InterruptedException {
         name.clear();
         name.sendKeys(isim);
         email.clear();
         email.sendKeys(mail);
+        Thread.sleep(5000);
+        ReusableMethods.waitUntilClickableAndClick(save);
 
     }
     public void saveValidate(){
