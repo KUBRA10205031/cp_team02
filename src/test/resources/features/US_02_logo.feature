@@ -1,8 +1,10 @@
 Feature: Logo ve kenar cubugu calışması
 
 
-  Scenario: Kullanici sayfaya login olur
-    Given Kullanici RxDrugsHub sayfasina gider
-    When  Kullanici gecerli bir email ve password girer.
-    And   Kullanici sign in butonuna ve kenar çubuguna ve logoya tıklanır
+  Scenario: Logo ve kenar cubugu
+    Given Kullanici RxDrugsHub  gider
+    When  Kullanici gecerli  email ve password girer.
+    And   kenar çubuguna  tıklanır
+    Then menu listesi kapanir
+    And  logo tiklanir
     Then  Arama sayfası gorulur.
