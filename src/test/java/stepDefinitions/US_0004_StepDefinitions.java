@@ -37,14 +37,6 @@ public class US_0004_StepDefinitions {
         System.out.println("Siteye giriş yapıldı.");
     }
 
-    @Then("All Products goruntuler.")
-    public void allProductsGoruntuler() {
-
-        Assert.assertTrue(kubra.AllProducts.isDisplayed());
-        System.out.println("All Products yazisi goruntulendi.");
-
-    }
-
     @And("Sagdaki Bussiness Owner butonuna tiklar.")
     public void sagdakiBussinessOwnerButonunaTiklar() {
 

@@ -1,5 +1,5 @@
 package utilities;
-//import com.github.javafaker.File;
+import com.github.javafaker.File;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
