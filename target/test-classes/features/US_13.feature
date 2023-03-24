@@ -14,7 +14,7 @@ Feature: Teams modülünde yeni bir team eklenebilir
    And Save butonuna tiklar
    And Kullanici Sol Menudeki Teams buttonunu tiklar
    Then Kullanici yeni eklenen Team i dogrular
-   And Kullanici browser i kapatir.
+
 
   Scenario:US_13 Team Eklemek icin Team Name zorunludur
     And Kullanici Teams buttonunu tiklar
@@ -22,7 +22,7 @@ Feature: Teams modülünde yeni bir team eklenebilir
    And Kullanici Department Type secer
   And Save butonuna tiklar
   Then Kullanici Please enter a name for department hatasini goruntuler
-  # And Kullanici browser i kapatir.
+
 
   Scenario:US_13 Team Eklemek icin Department Type zorunludur
     And Kullanici Teams buttonunu tiklar
@@ -30,7 +30,7 @@ Feature: Teams modülünde yeni bir team eklenebilir
     And Kullanici Team name girer
     And Save butonuna tiklar
     Then Kullanici Please Select a type for department hatasini goruntuler
-    And Kullanici browser i kapatir.
+
 
   Scenario:US_13 Gecerli bir Team Name eklenmedikce team eklenemez
     And Kullanici Teams buttonunu tiklar
@@ -41,7 +41,7 @@ Feature: Teams modülünde yeni bir team eklenebilir
     And Save butonuna tiklar
     And Kullanici Teams buttonunu tiklar
     Then Kullanici Hatali oldugu halde yeni bir team eklendigini dogrular
-    And Kullanici browser i kapatir.
+
 
 
 

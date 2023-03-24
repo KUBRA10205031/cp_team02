@@ -15,12 +15,12 @@ Feature: Teams modülünde Teamleri duzenleyebilmelidir
   Scenario:US_14 Teams modülünde team leri düzenleyebilmeli
     When Kullanici ekledigi team e tiklar
     And Kullanici Edit team buttonuna tiklar
-    And Kullanici yeni bir Team name girer
-    And Kullanici Department Type secer
+    And Kullanici yeni bir Team name girer ve Department Type secer
+
     And Save butonuna tiklar
     And Kullanici Teams buttonunu tiklar
     Then Kullanici duzenledigi Team i dogrular
-    #And Kullanici browser i kapatir.
+
 
 
   Scenario:US_14 Teams modülünde team name girmedikce team de degisiklik yapamaz
@@ -29,7 +29,7 @@ Feature: Teams modülünde Teamleri duzenleyebilmelidir
     And Kullanici  Team name kismini bos birakir
     And Save butonuna tiklar
     Then Kullanici Please enter a name for department hatasini goruntuler
-   #And Kullanici browser i kapatir.
+
 
   Scenario:US_14 Teams modülünde Department type secilmeden team de değisiklik yapilamaz
     When Kullanici ekledigi team e tiklar
@@ -38,7 +38,7 @@ Feature: Teams modülünde Teamleri duzenleyebilmelidir
     And Kullanici Department Type kismini bos birakir
     And Save butonuna tiklar
     Then Kullanici Please Select a type for department hatasini goruntuler
-  #  And Kullanici browser i kapatir.
+
 
   Scenario:US_14 Teams modülünde  Teamler Edit Team secenegiyle silinebilir
     When Kullanici ekledigi team e tiklar
@@ -48,7 +48,7 @@ Feature: Teams modülünde Teamleri duzenleyebilmelidir
 
    And Kullanici Sol Menudeki Teams buttonunu tiklar
    Then Kullanici silinen team in  goruntulenemedigini dogrular
-  #  And Kullanici browser i kapatir.
+
 
 
 
